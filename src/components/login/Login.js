@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/Auth/index";
@@ -8,11 +8,11 @@ export const Login = ({ history, loginUser, loginError, isAuthenticated }) => {
   const [userData, setUserData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      history.push("/");
-    }
-  }, [isAuthenticated, history]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     history.push("/");
+  //   }
+  // }, [isAuthenticated, history]);
 
   function handleChange(event) {
     const { name, value } = event.target;

@@ -2,26 +2,23 @@
 
 import { put, takeLatest } from "redux-saga/effects";
 import setAuthToken from "../utils/setAuthToken";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 import API from "../api/api";
 
 function* loginUser(userData) {
   try {
-    const json = yield API.loginUser(userData.userData)
-      .then((res) => {
-        const { token } = res.data;
-        localStorage.setItem("jwtToken", token);
-        setAuthToken(token);
-        const decoded = jwt_decode(token);
-        return decoded;
-      })
-      .catch((err) => {
-        throw err.response.data;
-      });
+    const json = yield API.loginUser(userData.userData);
+    // .then((res) => {
+    console.log(json);
     yield put({
       type: "SET_CURRENT_USER",
-      json: json,
+      json: json.data,
     });
+    //     })
+    //     .catch((err) => {
+    //       throw err.response.data;
+    //     });
+    //  .
   } catch (error) {
     yield put({
       type: "SET_CURRENT_USER_FAILED",
