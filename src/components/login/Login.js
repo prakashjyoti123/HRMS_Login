@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/Auth/index";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 export const Login = ({ history, loginUser, loginError, isAuthenticated }) => {
   const [userData, setUserData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     history.push("/");
-  //   }
-  // }, [isAuthenticated, history]);
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated]);
 
   function handleChange(event) {
     const { name, value } = event.target;

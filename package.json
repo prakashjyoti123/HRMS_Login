@@ -2,6 +2,7 @@
   "name": "react-redux-sagas-boilerplate",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://heliverse-backend-hrms.herokuapp.com/",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.16.5",

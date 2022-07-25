@@ -9,7 +9,9 @@ import * as serviceWorker from "./serviceWorker";
 import { store } from "./store";
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
-import Login from "components/login/Login";
+// import Header from "common/Header/Header";
+// import Login from "components/login/Login";
+import App from "./containers/App/index";
 // import { initializeFirebase, askForPermissionToReceiveNotifications } from './push-notification'
 // import * as firebase from 'firebase'
 
@@ -19,8 +21,9 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Suspense fallback={"Loading..."}>
-        {/* <App /> */}
-        <Login />
+        <App />
+        {/* <Header />
+        <Login /> */}
       </Suspense>
     </BrowserRouter>
   </Provider>,

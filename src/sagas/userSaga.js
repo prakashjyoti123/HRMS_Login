@@ -26,7 +26,31 @@ function* loginUser(userData) {
     });
   }
 }
+// // today code
+// function* handleLoggedUser() {
+//   try {
+//     const json = yield API.handleLoggedUser(userData.userData);
+//     // .then((res) => {
+//     console.log(json);
+//     yield put({
+//       type: "SET_HANDLE_LOGGED_USER",
+//       json: json.data,
+//     });
+//     //     })
+//     //     .catch((err) => {
+//     //       throw err.response.data;
+//     //     });
+//     //  .
+//   } catch (error) {
+//     yield put({
+//       type: "SET_CURRENT_USER_FAILED",
+//       error,
+//     });
+//   }
 
+// }
+
+// today code
 function* logOutUser(userData) {
   localStorage.removeItem("jwtToken");
   setAuthToken(false);
